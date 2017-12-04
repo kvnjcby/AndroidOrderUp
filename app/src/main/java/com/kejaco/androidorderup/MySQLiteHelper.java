@@ -80,10 +80,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
-        MenuItem photo = null;
+        MenuItem item = null;
         if (cursor.moveToFirst()) {
             do {
-                item = new MenuItem(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                item = new MenuItem(cursor.getString(1), cursor.getString(2), Float.parseFloat(cursor.getString(3)), cursor.getString(4));
 
                 items.add(item);
             } while (cursor.moveToNext());
@@ -117,7 +117,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Order order = null;
         if (cursor.moveToFirst()) {
             do {
-                order = new Order(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                order = new Order(cursor.getString(1), Float.parseFloat(cursor.getString(2)), cursor.getString(3), Integer.parseInt(cursor.getString(4)));
 
                 orders.add(order);
             } while (cursor.moveToNext());
