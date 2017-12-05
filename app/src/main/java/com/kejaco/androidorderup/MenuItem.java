@@ -5,12 +5,12 @@ package com.kejaco.androidorderup;
  */
 
 public class MenuItem {
-    private String name;
-    private String desc;
-    private float price;
-    private String photoPath;
+    public String name;
+    public String desc;
+    public String price;
+    public String photoPath;
 
-    public MenuItem(String name, String desc, float price, String photoPath) {
+    public MenuItem(String name, String desc, String price, String photoPath) {
         this.name = name;
         this.desc = desc;
         this.price = price;
@@ -25,7 +25,7 @@ public class MenuItem {
         return desc;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 

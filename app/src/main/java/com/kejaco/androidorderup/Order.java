@@ -5,12 +5,12 @@ package com.kejaco.androidorderup;
  */
 
 public class Order {
-    private String custName;
-    private float total;
-    private String items;
-    private int status;
+    public String custName;
+    public String total;
+    public String items;
+    public int status;
 
-    public Order(String custName, float total, String items, int status) {
+    public Order(String custName, String total, String items, int status) {
         this.custName = custName;
         this.total = total;
         this.items = items;
@@ -21,7 +21,7 @@ public class Order {
         return custName;
     }
 
-    public float getTotal() {
+    public String getTotal() {
         return total;
     }
 

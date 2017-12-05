@@ -27,14 +27,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, "+
                 "desc TEXT, "+
-                "price REAL, "+
+                "price TEXT, "+
                 "photoPath TEXT )";
         db.execSQL(CREATE_MENU_TABLE);
 
         String CREATE_ORDERS_TABLE = "CREATE TABLE orders ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "custName TEXT, "+
-                "total REAL, "+
+                "total TEXT, "+
                 "items TEXT, "+
                 "status INT )";
 
@@ -73,7 +73,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
     public List<MenuItem> getAllMenuItems() {
-        List<MenuItem> items = new LinkedList<AppPhoto>();
+        List<MenuItem> items = new LinkedList<MenuItem>();
 
         String query = "SELECT  * FROM " + TABLE_MENU;
 
@@ -83,7 +83,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         MenuItem item = null;
         if (cursor.moveToFirst()) {
             do {
-                item = new MenuItem(cursor.getString(1), cursor.getString(2), Float.parseFloat(cursor.getString(3)), cursor.getString(4));
+                item = new MenuItem(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
 
                 items.add(item);
             } while (cursor.moveToNext());
@@ -117,7 +117,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Order order = null;
         if (cursor.moveToFirst()) {
             do {
-                order = new Order(cursor.getString(1), Float.parseFloat(cursor.getString(2)), cursor.getString(3), Integer.parseInt(cursor.getString(4)));
+                order = new Order(cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)));
 
                 orders.add(order);
             } while (cursor.moveToNext());
