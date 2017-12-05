@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         // Construct the data source
-        ArrayList<MenuItem> arrayOfUsers = new ArrayList<MenuItem>();
+        ArrayList<MenuItem> arrayOfMenuItems = new ArrayList<MenuItem>();
         // Create the adapter to convert the array to views
-        MenuItemAdapter adapter = new MenuItemAdapter(this, arrayOfUsers);
+        MenuItemAdapter adapter = new MenuItemAdapter(this, arrayOfMenuItems);
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.lvMenuItem);
         listView.setAdapter(adapter);

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +26,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         // Get the data item for this position
         Order order = getItem(position);
 
-        Button rightBtn = (Button) convertView.findViewById(R.id.rightBtn);
+        /*Button rightBtn = (Button) convertView.findViewById(R.id.rightBtn);
         // Cache user object inside the button using `setTag`
         rightBtn.setTag(order);
         // Attach the click event handler
@@ -36,7 +37,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
                 Order order = (Order) view.getTag();
                 Toast.makeText(getContext(), "Hi!", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
         // Check if an existing view is being reused, otherwise inflate the view
@@ -50,8 +51,20 @@ public class OrderAdapter extends ArrayAdapter<Order> {
 
         // Populate the data into the template view using the data object
         orderCustName.setText(order.custName);
-        orderTotal.setText(order.total);
+        NumberFormat cF = NumberFormat.getCurrencyInstance();
+        orderTotal.setText(order.getTotal());
         orderItems.setText(order.items);
+
+
+        if (order.getStatus() == 0) {
+            convertView.setBackgroundColor(0xCCFF7575);
+        } else if (order.getStatus() == 1) {
+            convertView.setBackgroundColor(0xCCFFE177);
+        } else {
+            convertView.setBackgroundColor(0xCC7BE86F);
+        }
+
+
         // Return the completed view to render on screen
         return convertView;
     }
