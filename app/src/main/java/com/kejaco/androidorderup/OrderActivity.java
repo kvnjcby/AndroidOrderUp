@@ -23,11 +23,11 @@ public class OrderActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-        Order newOrder = new Order("Alfredo Guantanamo", "42.24", "Nachos, Cheese, PBR", 2);
+        Order newOrder = new Order("Alfredo Guantanamo", "$42.24", "Nachos, Cheese, PBR", 2);
         orders.add(newOrder);
-        newOrder = new Order("Shannon Eggins", "16.69", "PBR, PBR, PBR", 1);
+        newOrder = new Order("Shannon Eggins", "$16.69", "PBR, PBR, PBR", 1);
         orders.add(newOrder);
-        newOrder = new Order("Terry Yaki", "72.91", "Cheese, Pizza, Fruit loops, PBR, PBR", 1);
+        newOrder = new Order("Terry Yaki", "$72.91", "Cheese, Pizza, Fruit loops, PBR, PBR", 1);
         orders.add(newOrder);
 
 

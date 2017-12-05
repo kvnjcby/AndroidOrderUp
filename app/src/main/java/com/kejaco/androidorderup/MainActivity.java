@@ -41,17 +41,18 @@ public class MainActivity extends AppCompatActivity {
         adapter.add(newItem);
         newItem = new MenuItem("Pizza", "circular", "10.10", "/nophoto");
         adapter.add(newItem);
-        newItem = new MenuItem("PBR", "healthy", "4.02", "/nophoto");
+        newItem = new MenuItem("PBR", "for your health", "4.02", "/nophoto");
         adapter.add(newItem);
         newItem = new MenuItem("Cheese", "milk + bacteria = cheese", "33.33", "/nophoto");
         adapter.add(newItem);
         newItem = new MenuItem("Fruit loops", "sweetened, fruit-flavored breakfast cereal", "9.99", "/nophoto");
         adapter.add(newItem);
+        newItem = new MenuItem("Chocolate", "typically sweet, usually brown food", "17.77", "/nophoto");
         adapter.add(newItem);
         adapter.add(newItem);
         adapter.add(newItem);
         adapter.add(newItem);
-        adapter.add(newItem);
+
     }
 
     public void addToOrder(String name, String price) {
@@ -78,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
             items = items + item;
         }
 
-
-        Order newOrder = new Order(custName, orderTotal+"", items, 0);
+        NumberFormat cF = NumberFormat.getCurrencyInstance();
+        Order newOrder = new Order(custName, cF.format(orderTotal), items, 0);
         OrderActivity.addOrder(newOrder);
 
         orderTotal = 0;
