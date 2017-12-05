@@ -30,9 +30,17 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="1"
-        android:text="Order Total: $0.00"
+        android:text="Order Total: "
         android:layout_marginLeft="10dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/orderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:text="$0.00" />
 
 
     <Button

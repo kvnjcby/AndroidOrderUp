@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,21 @@ public class OrderAdapter extends ArrayAdapter<Order> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         Order order = getItem(position);
+
+        Button rightBtn = (Button) convertView.findViewById(R.id.rightBtn);
+        // Cache user object inside the button using `setTag`
+        rightBtn.setTag(order);
+        // Attach the click event handler
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Access user from within the tag
+                Order order = (Order) view.getTag();
+                Toast.makeText(getContext(), "Hi!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_order, parent, false);
