@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="0"
+        android:layout_marginBottom="10dp"
         android:text="Manage Orders" />
 
     <Button
@@ -21,24 +22,14 @@
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="1"
+        android:layout_marginBottom="10dp"
         android:text="Manage Menu" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="10"
-        android:layout_row="1"
-        android:text="Menu"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:textSize="16pt"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_row="2"
+        android:layout_row="1"
         android:text="Order Total: $0.00"
         android:layout_marginLeft="10dp"
         android:textStyle="bold" />
@@ -48,15 +39,27 @@
         android:id="@+id/placeOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_row="3"
-        android:layout_column="0"
+        android:layout_row="1"
+        android:layout_column="4"
+        android:background="#00ddcc"
         android:text="Place Order" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="10"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:text="Menu"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="16pt"/>
 
     <ListView
         android:id="@+id/lvMenuItem"
         android:layout_column="0"
         android:layout_columnSpan="10"
-        android:layout_row="4"
+        android:layout_row="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
