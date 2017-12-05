@@ -18,7 +18,10 @@ import java.util.ArrayList;
 public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
     public MenuItemAdapter(Context context, ArrayList<MenuItem> items) {
         super(context, 0, items);
+        this.mContext=context;
     }
+
+    private Context mContext;
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -39,7 +42,12 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
             public void onClick(View view) {
                 // Access user from within the tag
                 MenuItem item = (MenuItem) view.getTag();
-                Toast.makeText(getContext(), "Hi!"+item.getPrice(), Toast.LENGTH_SHORT).show();
+
+                if(mContext instanceof MainActivity){
+                    ((MainActivity)mContext).addToOrder(item.getName(), item.getPrice());
+                }
+
+                Toast.makeText(getContext(), "Added "+item.getName()+" to order", Toast.LENGTH_SHORT).show();
             }
         });
 

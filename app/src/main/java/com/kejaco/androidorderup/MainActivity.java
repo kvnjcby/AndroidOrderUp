@@ -4,12 +4,16 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    protected float orderTotal;
+    protected ArrayList<String> orderItems = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +42,19 @@ public class MainActivity extends AppCompatActivity {
         adapter.add(newItem);
         adapter.add(newItem);
         adapter.add(newItem);
+    }
+
+    public void addToOrder(String name, String price) {
+        float cost = Float.parseFloat(price);
+        orderTotal = orderTotal + cost;
+
+        orderItems.add(name);
+
+        TextView totalView = (TextView) findViewById(R.id.orderTotal);
+        totalView.setText("$"+orderTotal);
+    }
+
+    public void placeOrder(View v) {
+
     }
 }
